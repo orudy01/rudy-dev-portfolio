@@ -53,6 +53,13 @@
   color: #000000;
 }
 
+/* Focus visible — keyboard navigation */
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
 /* Horizontal rule styling */
 .section-rule {
   border: none;

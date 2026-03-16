@@ -122,6 +122,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-black text-white">
       <Nav />
+      <main id="main-content">
 
       {/* ─── Hero ─── */}
       <section
@@ -157,7 +158,7 @@ export default function Home() {
               <motion.p
                 custom={2}
                 variants={lineFade}
-                className="mt-8 md:mt-10 font-serif italic text-[clamp(1.1rem,2.5vw,1.6rem)] text-[#888] tracking-normal leading-relaxed"
+                className="mt-8 md:mt-10 font-serif italic text-[clamp(1.1rem,2.5vw,1.6rem)] text-[#999] tracking-normal leading-relaxed"
               >
                 Builder, Designer, Creator.
               </motion.p>
@@ -165,7 +166,7 @@ export default function Home() {
               <motion.p
                 custom={3}
                 variants={lineFade}
-                className="mt-5 font-mono text-[11px] uppercase tracking-[0.2em] text-[#777] max-w-md"
+                className="mt-5 font-mono text-[11px] uppercase tracking-[0.2em] text-[#888] max-w-md"
               >
                 Creative director & developer — Temecula, CA
               </motion.p>
@@ -190,7 +191,8 @@ export default function Home() {
           transition={{ delay: 1.5, duration: 0.8 }}
         >
           <motion.div
-            className="w-px h-12 bg-[#555] origin-top"
+            aria-hidden="true"
+            className="w-px h-12 bg-[#888] origin-top"
             animate={{ scaleY: [0, 1, 0] }}
             transition={{
               duration: 2,
@@ -214,11 +216,12 @@ export default function Home() {
               <div className="absolute inset-0 flex flex-col items-center justify-center gap-6">
                 <div className="w-16 h-16 md:w-20 md:h-20 border border-[#333] group-hover:border-white flex items-center justify-center transition-all duration-500 group-hover:scale-110">
                   <Play
-                    className="w-5 h-5 md:w-6 md:h-6 text-[#555] group-hover:text-white transition-colors duration-500 ml-0.5"
+                    aria-hidden="true"
+                    className="w-5 h-5 md:w-6 md:h-6 text-[#888] group-hover:text-white transition-colors duration-500 ml-0.5"
                     strokeWidth={1.5}
                   />
                 </div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#666] group-hover:text-[#888] transition-colors duration-500">
+                <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#888] group-hover:text-white transition-colors duration-500">
                   Showreel — 2026
                 </p>
               </div>
@@ -247,7 +250,7 @@ export default function Home() {
           >
             <motion.p
               variants={fadeUp}
-              className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#777] mb-6"
+              className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#888] mb-6"
             >
               Studio Headquarters
             </motion.p>
@@ -265,7 +268,7 @@ export default function Home() {
             </motion.h2>
             <motion.p
               variants={fadeUp}
-              className="mt-8 font-mono text-[11px] uppercase tracking-[0.2em] text-[#666]"
+              className="mt-8 font-mono text-[11px] uppercase tracking-[0.2em] text-[#888]"
             >
               33.4936&deg; N, 117.1484&deg; W
             </motion.p>
@@ -285,6 +288,7 @@ export default function Home() {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeUp}
+                aria-hidden="true"
                 className="w-40 h-40 md:w-52 md:h-52 bg-[#f0f0f0] border border-[#e0e0e0] flex items-center justify-center"
               >
                 <span className="font-mono text-[10px] text-[#bbb] uppercase tracking-[0.15em]">
@@ -382,8 +386,8 @@ export default function Home() {
             >
               <motion.div variants={fadeUp}>
                 <div className="flex items-center gap-4 mb-8">
-                  <span className="font-mono text-xs text-[#aaa]">04</span>
-                  <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#999]">
+                  <span className="font-mono text-xs text-[#666]" aria-hidden="true">04</span>
+                  <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#555]">
                     Contact
                   </span>
                 </div>
@@ -405,18 +409,18 @@ export default function Home() {
 
                   <div className="space-y-6">
                     <div>
-                      <p className="font-mono text-[10px] text-[#888] uppercase tracking-[0.2em] mb-2">
+                      <p className="font-mono text-[10px] text-[#555] uppercase tracking-[0.2em] mb-2">
                         Email
                       </p>
                       <a
                         href="mailto:orudy01@gmail.com"
-                        className="font-mono text-sm text-black hover:text-[#555] transition-colors duration-300"
+                        className="font-mono text-sm text-black hover:text-[#555] transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black rounded-sm"
                       >
                         orudy01@gmail.com
                       </a>
                     </div>
                     <div>
-                      <p className="font-mono text-[10px] text-[#888] uppercase tracking-[0.2em] mb-2">
+                      <p className="font-mono text-[10px] text-[#555] uppercase tracking-[0.2em] mb-2">
                         Response Time
                       </p>
                       <p className="font-mono text-sm text-black">
@@ -438,7 +442,7 @@ export default function Home() {
                       </p>
                       <button
                         onClick={() => setFormState("idle")}
-                        className="mt-4 font-mono text-[12px] uppercase tracking-[0.15em] text-[#999] hover:text-black transition-colors duration-200"
+                        className="mt-4 font-mono text-[12px] uppercase tracking-[0.15em] text-[#666] hover:text-black transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black rounded-sm"
                       >
                         Send another
                       </button>
@@ -453,7 +457,7 @@ export default function Home() {
                       </p>
                       <button
                         onClick={() => setFormState("idle")}
-                        className="mt-4 font-mono text-[12px] uppercase tracking-[0.15em] text-[#999] hover:text-black transition-colors duration-200"
+                        className="mt-4 font-mono text-[12px] uppercase tracking-[0.15em] text-[#666] hover:text-black transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black rounded-sm"
                       >
                         Try again
                       </button>
@@ -470,7 +474,7 @@ export default function Home() {
                             type="text"
                             placeholder="Name"
                             required
-                            className="w-full bg-transparent border-b border-[#ddd] pb-3 font-mono text-sm text-black placeholder:text-[#aaa] focus:outline-none focus:border-[#666] transition-colors duration-300"
+                            className="w-full bg-transparent border-b border-[#ddd] pb-3 font-mono text-sm text-black placeholder:text-[#767676] focus:outline-none focus:border-[#333] focus-visible:ring-0 transition-colors duration-300"
                           />
                         </div>
                         <div>
@@ -481,7 +485,7 @@ export default function Home() {
                             id="business"
                             type="text"
                             placeholder="Business / Project"
-                            className="w-full bg-transparent border-b border-[#ddd] pb-3 font-mono text-sm text-black placeholder:text-[#aaa] focus:outline-none focus:border-[#666] transition-colors duration-300"
+                            className="w-full bg-transparent border-b border-[#ddd] pb-3 font-mono text-sm text-black placeholder:text-[#767676] focus:outline-none focus:border-[#333] focus-visible:ring-0 transition-colors duration-300"
                           />
                         </div>
                       </div>
@@ -494,7 +498,7 @@ export default function Home() {
                           type="email"
                           placeholder="Email"
                           required
-                          className="w-full bg-transparent border-b border-[#ddd] pb-3 font-mono text-sm text-black placeholder:text-[#aaa] focus:outline-none focus:border-[#666] transition-colors duration-300"
+                          className="w-full bg-transparent border-b border-[#ddd] pb-3 font-mono text-sm text-black placeholder:text-[#767676] focus:outline-none focus:border-[#333] focus-visible:ring-0 transition-colors duration-300"
                         />
                       </div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
@@ -504,7 +508,7 @@ export default function Home() {
                           </label>
                           <select
                             id="service"
-                            className="w-full bg-transparent border-b border-[#ddd] pb-3 font-mono text-sm text-[#aaa] focus:outline-none focus:border-[#666] transition-colors duration-300 [&>option]:bg-white"
+                            className="w-full bg-transparent border-b border-[#ddd] pb-3 font-mono text-sm text-[#555] focus:outline-none focus:border-[#333] focus-visible:ring-0 transition-colors duration-300 [&>option]:bg-white"
                           >
                             <option value="">What do you need?</option>
                             <option value="landing">Landing Page</option>
@@ -520,7 +524,7 @@ export default function Home() {
                           </label>
                           <select
                             id="timeline"
-                            className="w-full bg-transparent border-b border-[#ddd] pb-3 font-mono text-sm text-[#aaa] focus:outline-none focus:border-[#666] transition-colors duration-300 [&>option]:bg-white"
+                            className="w-full bg-transparent border-b border-[#ddd] pb-3 font-mono text-sm text-[#555] focus:outline-none focus:border-[#333] focus-visible:ring-0 transition-colors duration-300 [&>option]:bg-white"
                           >
                             <option value="">Timeline</option>
                             <option value="asap">ASAP</option>
@@ -538,13 +542,13 @@ export default function Home() {
                           id="message"
                           placeholder="Tell me about your project..."
                           rows={4}
-                          className="w-full bg-transparent border-b border-[#ddd] pb-3 font-mono text-sm text-black placeholder:text-[#aaa] focus:outline-none focus:border-[#666] transition-colors duration-300 resize-none"
+                          className="w-full bg-transparent border-b border-[#ddd] pb-3 font-mono text-sm text-black placeholder:text-[#767676] focus:outline-none focus:border-[#333] focus-visible:ring-0 transition-colors duration-300 resize-none"
                         />
                       </div>
                       <button
                         type="submit"
                         disabled={formState === "sending"}
-                        className="font-mono text-[12px] uppercase tracking-[0.15em] border border-black px-8 py-4 text-black hover:bg-black hover:text-white transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="font-mono text-[12px] uppercase tracking-[0.15em] border border-black px-8 py-4 text-black hover:bg-black hover:text-white transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 rounded-sm"
                       >
                         {formState === "sending"
                           ? "Sending..."
@@ -560,6 +564,7 @@ export default function Home() {
 
         <Footer variant="light" />
       </div>
+      </main>
     </div>
   );
 }

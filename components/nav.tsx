@@ -16,11 +16,14 @@ export function Nav({ active }: { active?: string }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/70 backdrop-blur-md border-b border-[#181818]">
+    <nav
+      aria-label="Main navigation"
+      className="fixed top-0 left-0 right-0 z-50 bg-black/70 backdrop-blur-md border-b border-[#181818]"
+    >
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 flex items-center justify-between py-5">
         <Link
           href="/"
-          className="font-sans text-sm font-semibold tracking-tight text-white"
+          className="font-sans text-sm font-semibold tracking-tight text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded-sm"
         >
           Rodolfo Ortega
         </Link>
@@ -36,10 +39,10 @@ export function Nav({ active }: { active?: string }) {
             >
               <Link
                 href={link.href}
-                className={`font-mono text-[11px] uppercase tracking-[0.15em] transition-colors duration-300 py-2 ${
+                className={`font-mono text-[11px] uppercase tracking-[0.15em] transition-colors duration-300 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded-sm ${
                   link.label === active
                     ? "text-white"
-                    : "text-[#666] hover:text-white"
+                    : "text-[#888] hover:text-white"
                 }`}
               >
                 {link.label}
@@ -51,8 +54,10 @@ export function Nav({ active }: { active?: string }) {
         {/* Mobile hamburger */}
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden p-2 text-white"
+          className="md:hidden p-2 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded-sm"
           aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
         >
           {open ? <X size={20} /> : <Menu size={20} />}
         </button>
@@ -62,6 +67,7 @@ export function Nav({ active }: { active?: string }) {
       <AnimatePresence>
         {open && (
           <motion.div
+            id="mobile-menu"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
@@ -74,10 +80,10 @@ export function Nav({ active }: { active?: string }) {
                   key={link.label}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className={`font-mono text-sm uppercase tracking-[0.15em] transition-colors duration-300 py-2 ${
+                  className={`font-mono text-sm uppercase tracking-[0.15em] transition-colors duration-300 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-sm ${
                     link.label === active
                       ? "text-white"
-                      : "text-[#666] hover:text-white"
+                      : "text-[#888] hover:text-white"
                   }`}
                 >
                   {link.label}
