@@ -33,6 +33,10 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+# Claude Code — local dev tooling, not part of the project
+CLAUDE.md
+.claude/
+
 # vercel
 .vercel
 

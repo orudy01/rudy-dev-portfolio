@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Rodolfo Ortega — Portfolio
+
+Personal portfolio and client-facing website for Rodolfo Ortega, a creative director and full-stack developer based in Temecula, CA.
+
+## Stack
+
+- **Next.js 16** (App Router)
+- **React 19** + TypeScript
+- **Tailwind CSS v4**
+- **Framer Motion v12** — scroll-triggered animations, marquee carousels, parallax
+- **Resend** — contact form email delivery
+- **shadcn/ui** + Radix UI primitives
+- **Lucide React** — icons
+
+## Pages
+
+| Route | Description |
+|---|---|
+| `/` | Homepage — hero, showreel, about, photo carousel, contact form |
+| `/work` | Case studies — B&B Auto Detailing, Sandra's Mini Pancakes, Gym Logger, AI Micro-Agency |
+| `/services` | Pricing tiers — Landing Page, Business Site, Full Package |
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create a `.env.local` file in the root:
 
-## Learn More
+```env
+RESEND_API_KEY=re_your_key_here
+```
 
-To learn more about Next.js, take a look at the following resources:
+Get a free API key at [resend.com](https://resend.com).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+app/
+  page.tsx              # Homepage
+  services/
+    layout.tsx          # Services page metadata
+    page.tsx            # Pricing page
+  work/
+    layout.tsx          # Work page metadata
+    page.tsx            # Case studies
+  api/
+    contact/route.ts    # Contact form API route (Resend)
+  layout.tsx            # Root layout + global metadata
+  globals.css           # Tailwind + custom animations
+  sitemap.ts            # Auto-generated /sitemap.xml
+  robots.ts             # Auto-generated /robots.txt
+components/
+  nav.tsx               # Fixed responsive navbar
+  footer.tsx            # Dark/light variant footer
+  container.tsx         # Max-width wrapper
+lib/
+  motion.ts             # Framer Motion animation variants
+  utils.ts              # cn() utility
+```
 
-## Deploy on Vercel
+## TODO Before Launch
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [ ] Replace `https://rudyortega.dev` placeholder with live domain (search the codebase)
+- [ ] Add `/public/og-image.jpg` — 1200×630px for social sharing
+- [ ] Update Resend `from:` address to a domain email once domain is live
+- [ ] Add real project images to `/work` page
+- [ ] Add real photos to marquee carousel on homepage
+- [ ] Add showreel video or swap placeholder for a static image
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Scripts
+
+```bash
+npm run dev      # Development server
+npm run build    # Production build
+npm run lint     # ESLint
+```
