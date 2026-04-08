@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import { Container } from "@/components/container";
@@ -16,6 +15,7 @@ const projects = [
     description:
       "Landing page for a veteran-owned detailing business. Contact form, service packages, and lead generation. 12 qualified leads in the first month.",
     tags: ["Next.js", "Tailwind", "Framer Motion"],
+    url: "#",
   },
   {
     number: "02",
@@ -25,15 +25,17 @@ const projects = [
     description:
       "Catering website with 3 service tiers and a booking inquiry system. Warm gold palette designed to match the brand's personality.",
     tags: ["React", "Vite", "Framer Motion"],
+    url: "#",
   },
   {
     number: "03",
     title: "Gym Logger",
-    category: "Web App — SaaS",
+    category: "Web App — Personal + SaaS",
     year: "2025",
     description:
-      "Full-stack workout tracker with Stripe subscription billing, Firebase backend, and session logging. Built end-to-end from concept to deploy.",
-    tags: ["React", "Firebase", "Stripe", "Zustand"],
+      "Built from scratch because every workout tracker I tried locked features behind a paywall. Tracks my sessions over time, generates AI-powered workout plans based on your goals, equipment, and schedule (Groq / Llama 3.3), and lets others browse my workouts, view my supplement stack, or book a personal training session. A personal tool that doubles as a tool for others to use.",
+    tags: ["React", "Node.js", "Stripe", "Resend", "Groq"],
+    url: "https://gymrudy.com",
   },
   {
     number: "04",
@@ -43,22 +45,22 @@ const projects = [
     description:
       "Building an AI-assisted micro-agency as both a portfolio piece and income channel. End-to-end product development using modern AI tooling.",
     tags: ["Next.js", "AI", "Stripe", "Firebase"],
+    url: "#",
   },
 ];
 
 export default function WorkPage() {
   return (
     <div className="min-h-screen bg-black text-white">
-      <Nav active="Work" />
+      <Nav />
       <main id="main-content">
 
         {/* Header */}
-        <section className="pt-32 pb-16">
+        <section className="pt-28 pb-12 md:pt-32 md:pb-16">
           <Container>
             <motion.div initial="hidden" animate="visible" variants={stagger}>
               <motion.div variants={fadeUp}>
                 <div className="flex items-center gap-4 mb-8">
-                  <span className="font-mono text-xs text-[#888]" aria-hidden="true">01</span>
                   <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#888]">
                     Selected Work
                   </span>
@@ -92,33 +94,73 @@ export default function WorkPage() {
                   <motion.div
                     key={project.number}
                     variants={fadeUp}
-                    className="group border-t border-[#1a1a1a] py-12 md:py-16 last:border-b last:border-[#1a1a1a]"
+                    className="group border-t border-[#1a1a1a] py-8 md:py-16 last:border-b last:border-[#1a1a1a]"
                   >
-                    <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
-                      {/* Project image placeholder */}
-                      <div className="md:col-span-7 order-2 md:order-1">
+                    {/* Mobile layout */}
+                    <div className="flex flex-col gap-4 md:hidden">
+                      <div
+                        aria-hidden="true"
+                        className="w-full aspect-video bg-[#0a0a0a] border border-[#1a1a1a] flex items-center justify-center overflow-hidden"
+                      >
+                        <span className="font-mono text-[10px] text-[#555] uppercase tracking-[0.15em]">
+                          {project.title}
+                        </span>
+                      </div>
+                      <div>
+                        <span className="font-mono text-[10px] text-[#888] uppercase tracking-[0.15em] block mb-2">
+                          {project.category} · {project.year}
+                        </span>
+                        <h2 className="font-sans font-bold text-xl tracking-tight leading-tight mb-3">
+                          {project.title}
+                        </h2>
+                        <p className="font-serif text-[14px] text-[#888] leading-relaxed line-clamp-3">
+                          {project.description}
+                        </p>
+                      </div>
+                      <div className="flex flex-wrap gap-1.5 items-center">
+                        {project.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="font-mono text-[10px] uppercase tracking-widest text-[#888] border border-[#333] px-2 py-0.5"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                        {project.url !== "#" ? (
+                          <a
+                            href={project.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-mono text-[10px] uppercase tracking-[0.15em] text-white ml-auto hover:text-[#888] transition-colors duration-200"
+                          >
+                            View →
+                          </a>
+                        ) : (
+                          <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-[#555] ml-auto">
+                            Coming Soon
+                          </span>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Desktop layout */}
+                    <div className="hidden md:grid md:grid-cols-12 gap-12">
+                      <div className="col-span-7">
                         <div
                           aria-hidden="true"
-                          className="w-full aspect-[16/10] bg-[#0a0a0a] border border-[#1a1a1a] group-hover:border-[#333] transition-colors duration-500 flex items-center justify-center overflow-hidden"
+                          className="w-full aspect-16/10 bg-[#0a0a0a] border border-[#1a1a1a] group-hover:border-[#444] transition-colors duration-500 flex items-center justify-center overflow-hidden"
                         >
-                          <span className="font-mono text-[11px] text-[#888] uppercase tracking-[0.2em] group-hover:text-white transition-colors duration-500">
+                          <span className="font-mono text-[11px] text-[#555] uppercase tracking-[0.2em] group-hover:text-[#888] transition-colors duration-500">
                             {project.title}
                           </span>
                         </div>
                       </div>
-
-                      {/* Project info */}
-                      <div className="md:col-span-5 order-1 md:order-2 flex flex-col justify-between">
+                      <div className="col-span-5 flex flex-col justify-between">
                         <div>
-                          <div className="flex items-center gap-4 mb-4">
-                            <span className="font-mono text-[11px] text-[#888]" aria-hidden="true">
-                              {project.number}
-                            </span>
-                            <span className="font-mono text-[11px] text-[#888] uppercase tracking-[0.15em]">
-                              {project.category}
-                            </span>
-                          </div>
-                          <h2 className="font-sans font-bold text-2xl md:text-3xl tracking-tight leading-tight mb-4 group-hover:text-white transition-colors duration-300">
+                          <span className="font-mono text-[11px] text-[#888] uppercase tracking-[0.15em] block mb-4">
+                            {project.category}
+                          </span>
+                          <h2 className="font-sans font-bold text-3xl tracking-tight leading-tight mb-4 group-hover:text-white transition-colors duration-300">
                             {project.title}
                           </h2>
                           <p className="font-serif text-[15px] text-[#888] leading-relaxed mb-6">
@@ -129,7 +171,7 @@ export default function WorkPage() {
                           {project.tags.map((tag) => (
                             <span
                               key={tag}
-                              className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#888] border border-[#333] px-2.5 py-1"
+                              className="font-mono text-[10px] uppercase tracking-widest text-[#888] border border-[#333] px-2.5 py-1"
                             >
                               {tag}
                             </span>
@@ -138,6 +180,20 @@ export default function WorkPage() {
                             {project.year}
                           </span>
                         </div>
+                        {project.url !== "#" ? (
+                          <a
+                            href={project.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="mt-6 inline-block font-mono text-[11px] uppercase tracking-[0.15em] text-white border-b border-[#333] pb-0.5 hover:border-white transition-colors duration-200 w-fit"
+                          >
+                            View Project →
+                          </a>
+                        ) : (
+                          <span className="mt-6 inline-block font-mono text-[11px] uppercase tracking-[0.15em] text-[#555] w-fit">
+                            Coming Soon
+                          </span>
+                        )}
                       </div>
                     </div>
                   </motion.div>

@@ -20,7 +20,6 @@ const carouselRow1 = [
   "Design",
   "Code",
   "Sunset",
-  "Brand",
 ];
 const carouselRow2 = [
   "Workspace",
@@ -30,7 +29,6 @@ const carouselRow2 = [
   "Creative",
   "Build",
   "Mood",
-  "Film",
 ];
 const carouselRow3 = [
   "Inspiration",
@@ -40,7 +38,6 @@ const carouselRow3 = [
   "Motion",
   "Light",
   "Texture",
-  "Vision",
 ];
 
 /* ─── Carousel Row Component ─── */
@@ -60,13 +57,13 @@ function MarqueeRow({
   return (
     <div className="overflow-hidden">
       <div
-        className={`flex gap-3 ${animationClass} hover:[animation-play-state:paused]`}
+        className={`flex gap-6 ${animationClass} hover:[animation-play-state:paused]`}
         style={{ animationDuration: speed }}
       >
         {[...items, ...items].map((item, i) => (
           <div
             key={`${item}-${i}`}
-            className="flex-shrink-0 w-[120px] h-[120px] md:w-[160px] md:h-[160px] bg-[#f0f0f0] border border-[#e0e0e0] flex items-center justify-center"
+            className="shrink-0 w-[180px] h-[180px] md:w-[240px] md:h-[240px] bg-[#f0f0f0] border border-[#e0e0e0] flex items-center justify-center"
           >
             <span className="font-mono text-[9px] text-[#bbb] uppercase tracking-[0.15em]">
               {item}
@@ -386,7 +383,6 @@ export default function Home() {
             >
               <motion.div variants={fadeUp}>
                 <div className="flex items-center gap-4 mb-8">
-                  <span className="font-mono text-xs text-[#666]" aria-hidden="true">04</span>
                   <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#555]">
                     Contact
                   </span>
