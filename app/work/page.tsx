@@ -6,19 +6,51 @@ import { Footer } from "@/components/footer";
 import { Container } from "@/components/container";
 import { fadeUp, stagger } from "@/lib/motion";
 
+type Project = {
+  number: string;
+  title: string;
+  category: string;
+  year: string;
+  description: string;
+  tags: string[];
+  url: string;
+  image?: {
+    src: string;
+    alt: string;
+  };
+};
+
 const projects = [
   {
     number: "01",
+    title: "Gym Logger",
+    category: "Web App — Personal + SaaS",
+    year: "2025",
+    description:
+      "Built from scratch because every workout tracker I tried locked features behind a paywall. Tracks my sessions over time, generates AI-powered workout plans based on your goals, equipment, and schedule (Groq / Llama 3.3), and lets others browse my workouts, view my supplement stack, or book a personal training session. A personal tool that doubles as a tool for others to use.",
+    tags: ["React", "Node.js", "Stripe", "Resend", "Groq"],
+    url: "https://gymrudy.com",
+    image: {
+      src: "/work/gym-log.jpg",
+      alt: "Gym Logger website preview",
+    },
+  },
+  {
+    number: "02",
     title: "B&B Auto Detailing",
     category: "Web — Local Business",
     year: "2025",
     description:
       "Landing page for a veteran-owned detailing business. Contact form, service packages, and lead generation. 12 qualified leads in the first month.",
     tags: ["Next.js", "Tailwind", "Framer Motion"],
-    url: "#",
+    url: "https://www.bandbautodetailing.com",
+    image: {
+      src: "/work/b-and-b-auto-detailing.jpg",
+      alt: "B&B Auto Detailing website preview",
+    },
   },
   {
-    number: "02",
+    number: "03",
     title: "Sandra's Mini Pancakes",
     category: "Web — Catering",
     year: "2025",
@@ -27,27 +59,27 @@ const projects = [
     tags: ["React", "Vite", "Framer Motion"],
     url: "#",
   },
-  {
-    number: "03",
-    title: "Gym Logger",
-    category: "Web App — Personal + SaaS",
-    year: "2025",
-    description:
-      "Built from scratch because every workout tracker I tried locked features behind a paywall. Tracks my sessions over time, generates AI-powered workout plans based on your goals, equipment, and schedule (Groq / Llama 3.3), and lets others browse my workouts, view my supplement stack, or book a personal training session. A personal tool that doubles as a tool for others to use.",
-    tags: ["React", "Node.js", "Stripe", "Resend", "Groq"],
-    url: "https://gymrudy.com",
-  },
-  {
-    number: "04",
-    title: "AI Micro-Agency",
-    category: "Product — In Progress",
-    year: "2026",
-    description:
-      "Building an AI-assisted micro-agency as both a portfolio piece and income channel. End-to-end product development using modern AI tooling.",
-    tags: ["Next.js", "AI", "Stripe", "Firebase"],
-    url: "#",
-  },
 ];
+
+function ProjectPreview({ project }: { project: Project }) {
+  if (project.image) {
+    return (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src={project.image.src}
+        alt={project.image.alt}
+        loading="lazy"
+        className="h-full w-full object-cover"
+      />
+    );
+  }
+
+  return (
+    <span className="font-mono text-[10px] text-[#555] uppercase tracking-[0.15em] md:text-[11px] md:tracking-[0.2em] group-hover:text-[#888] transition-colors duration-500">
+      {project.title}
+    </span>
+  );
+}
 
 export default function WorkPage() {
   return (
@@ -99,12 +131,9 @@ export default function WorkPage() {
                     {/* Mobile layout */}
                     <div className="flex flex-col gap-4 md:hidden">
                       <div
-                        aria-hidden="true"
                         className="w-full aspect-video bg-[#0a0a0a] border border-[#1a1a1a] flex items-center justify-center overflow-hidden"
                       >
-                        <span className="font-mono text-[10px] text-[#555] uppercase tracking-[0.15em]">
-                          {project.title}
-                        </span>
+                        <ProjectPreview project={project} />
                       </div>
                       <div>
                         <span className="font-mono text-[10px] text-[#888] uppercase tracking-[0.15em] block mb-2">
@@ -147,12 +176,9 @@ export default function WorkPage() {
                     <div className="hidden md:grid md:grid-cols-12 gap-12">
                       <div className="col-span-7">
                         <div
-                          aria-hidden="true"
                           className="w-full aspect-16/10 bg-[#0a0a0a] border border-[#1a1a1a] group-hover:border-[#444] transition-colors duration-500 flex items-center justify-center overflow-hidden"
                         >
-                          <span className="font-mono text-[11px] text-[#555] uppercase tracking-[0.2em] group-hover:text-[#888] transition-colors duration-500">
-                            {project.title}
-                          </span>
+                          <ProjectPreview project={project} />
                         </div>
                       </div>
                       <div className="col-span-5 flex flex-col justify-between">

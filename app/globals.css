@@ -99,11 +99,20 @@
 @media (prefers-reduced-motion: no-preference) {
   .marquee-left {
     animation: marquee-left linear infinite;
+    animation-duration: var(--marquee-mobile-duration, 40s);
     will-change: transform;
   }
 
   .marquee-right {
     animation: marquee-right linear infinite;
+    animation-duration: var(--marquee-mobile-duration, 40s);
     will-change: transform;
+  }
+
+  @media (min-width: 768px) {
+    .marquee-left,
+    .marquee-right {
+      animation-duration: var(--marquee-duration, 80s);
+    }
   }
 }

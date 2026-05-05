@@ -13,31 +13,29 @@ import { fadeUp, stagger, lineFade } from "@/lib/motion";
 /* ─── Carousel Data ─── */
 
 const carouselRow1 = [
-  "Project A",
-  "Portrait",
-  "Temecula",
-  "Studio",
-  "Design",
-  "Code",
-  "Sunset",
+  "/carousel/000026640003.JPG",
+  "/carousel/000026640009.JPG",
+  "/carousel/DSC02185.jpeg",
+  "/carousel/DSC02218.jpeg",
+  "/carousel/DSC04801.jpeg",
+  "/carousel/DSC05296.JPG",
+  "/carousel/DSC05460.JPG",
 ];
 const carouselRow2 = [
-  "Workspace",
-  "Camera",
-  "Detail",
-  "Skyline",
-  "Creative",
-  "Build",
-  "Mood",
+  "/carousel/DSC05511.JPG",
+  "/carousel/DSC06293.JPG",
+  "/carousel/DSC07599.JPG",
+  "/carousel/DSC07955.jpeg",
+  "/carousel/IMG_0176.jpeg",
+  "/carousel/IMG_1884.jpeg",
 ];
 const carouselRow3 = [
-  "Inspiration",
-  "Process",
-  "Coffee",
-  "Typography",
-  "Motion",
-  "Light",
-  "Texture",
+  "/carousel/IMG_2769.jpeg",
+  "/carousel/IMG_3095.JPG",
+  "/carousel/IMG_3326.jpeg",
+  "/carousel/IMG_5135.JPG",
+  "/carousel/IMG_5142.JPG",
+  "/carousel/ORG_DSC04599.JPG",
 ];
 
 /* ─── Carousel Row Component ─── */
@@ -46,10 +44,12 @@ function MarqueeRow({
   items,
   direction,
   speed,
+  mobileSpeed,
 }: {
   items: string[];
   direction: "left" | "right";
   speed: string;
+  mobileSpeed?: string;
 }) {
   const animationClass =
     direction === "left" ? "marquee-left" : "marquee-right";
@@ -57,19 +57,23 @@ function MarqueeRow({
   return (
     <div className="overflow-hidden">
       <div
-        className={`flex gap-6 ${animationClass} hover:[animation-play-state:paused]`}
-        style={{ animationDuration: speed }}
+        className={`flex items-center ${animationClass}`}
+        style={{
+          "--marquee-duration": speed,
+          "--marquee-mobile-duration": mobileSpeed ?? speed,
+        } as React.CSSProperties}
       >
-        {[...items, ...items].map((item, i) => (
-          <div
-            key={`${item}-${i}`}
-            className="shrink-0 w-[180px] h-[180px] md:w-[240px] md:h-[240px] bg-[#f0f0f0] border border-[#e0e0e0] flex items-center justify-center"
-          >
-            <span className="font-mono text-[9px] text-[#bbb] uppercase tracking-[0.15em]">
-              {item}
-            </span>
-          </div>
-        ))}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        {[...items, ...items].map((src, i) =>
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            key={`${src}-${i}`}
+            src={src}
+            alt=""
+            loading="lazy"
+            className="shrink-0 h-[140px] md:h-[260px] w-auto object-cover mr-8"
+          />
+        )}
       </div>
     </div>
   );
@@ -279,20 +283,6 @@ export default function Home() {
         <section id="about" className="pt-24 pb-24 md:pt-32 md:pb-32">
           <Container>
             <div className="flex flex-col items-center gap-16 md:gap-20">
-              {/* Portrait placeholder */}
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeUp}
-                aria-hidden="true"
-                className="w-40 h-40 md:w-52 md:h-52 bg-[#f0f0f0] border border-[#e0e0e0] flex items-center justify-center"
-              >
-                <span className="font-mono text-[10px] text-[#bbb] uppercase tracking-[0.15em]">
-                  Portrait
-                </span>
-              </motion.div>
-
               <motion.h2
                 initial="hidden"
                 whileInView="visible"
@@ -358,17 +348,23 @@ export default function Home() {
         </section>
 
         {/* ─── Photo Carousel ─── */}
-        <section className="py-24 md:py-32 overflow-hidden">
+        <section className="pt-4 pb-24 md:pb-32 overflow-hidden">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8 }}
-            className="space-y-5"
+            className="space-y-6"
+            style={{
+              maskImage:
+                "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
+              WebkitMaskImage:
+                "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
+            }}
           >
-            <MarqueeRow items={carouselRow1} direction="right" speed="35s" />
-            <MarqueeRow items={carouselRow2} direction="left" speed="40s" />
-            <MarqueeRow items={carouselRow3} direction="right" speed="45s" />
+            <MarqueeRow items={carouselRow1} direction="right" speed="70s" mobileSpeed="35s" />
+            <MarqueeRow items={carouselRow2} direction="left" speed="95s" mobileSpeed="45s" />
+            <MarqueeRow items={carouselRow3} direction="right" speed="80s" mobileSpeed="40s" />
           </motion.div>
         </section>
 

@@ -177,8 +177,7 @@ export default function ServicesPage() {
           <Container>
             <motion.div
               initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
+              animate="visible"
               variants={stagger}
             >
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
