@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "node scripts/gen-carousel.mjs",
+    "prebuild": "node scripts/gen-carousel.mjs",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "gen:carousel": "node scripts/gen-carousel.mjs"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",

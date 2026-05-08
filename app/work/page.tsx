@@ -75,9 +75,39 @@ function ProjectPreview({ project }: { project: Project }) {
   }
 
   return (
-    <span className="font-mono text-[10px] text-[#555] uppercase tracking-[0.15em] md:text-[11px] md:tracking-[0.2em] group-hover:text-[#888] transition-colors duration-500">
-      {project.title}
-    </span>
+    <div
+      className="relative h-full w-full overflow-hidden"
+      style={{
+        backgroundImage:
+          "repeating-linear-gradient(45deg, transparent 0, transparent 6px, #111 6px, #111 7px)",
+      }}
+    >
+      <div className="absolute top-3 left-3 w-4 h-4 border-t border-l border-[#222] group-hover:border-[#444] transition-colors duration-500" />
+      <div className="absolute top-3 right-3 w-4 h-4 border-t border-r border-[#222] group-hover:border-[#444] transition-colors duration-500" />
+      <div className="absolute bottom-3 left-3 w-4 h-4 border-b border-l border-[#222] group-hover:border-[#444] transition-colors duration-500" />
+      <div className="absolute bottom-3 right-3 w-4 h-4 border-b border-r border-[#222] group-hover:border-[#444] transition-colors duration-500" />
+
+      <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 px-6 text-center">
+        <span aria-hidden="true" className="relative flex h-1.5 w-1.5">
+          <span className="absolute inline-flex h-full w-full rounded-full bg-white opacity-60 animate-ping" />
+          <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-white" />
+        </span>
+
+        <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#888]">
+          Status — In Progress
+        </p>
+
+        <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#555]">
+          {project.title}
+        </p>
+
+        <span aria-hidden="true" className="block w-6 h-px bg-[#333]" />
+
+        <p className="font-mono text-[12px] uppercase tracking-[0.25em] text-white">
+          Coming Soon
+        </p>
+      </div>
+    </div>
   );
 }
 

@@ -3,40 +3,17 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
 import Link from "next/link";
-import { Play } from "lucide-react";
+// import { Play } from "lucide-react"; // re-enable when Showreel section returns
 
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import { Container } from "@/components/container";
 import { fadeUp, stagger, lineFade } from "@/lib/motion";
-
-/* ─── Carousel Data ─── */
-
-const carouselRow1 = [
-  "/carousel/000026640003.JPG",
-  "/carousel/000026640009.JPG",
-  "/carousel/DSC02185.jpeg",
-  "/carousel/DSC02218.jpeg",
-  "/carousel/DSC04801.jpeg",
-  "/carousel/DSC05296.JPG",
-  "/carousel/DSC05460.JPG",
-];
-const carouselRow2 = [
-  "/carousel/DSC05511.JPG",
-  "/carousel/DSC06293.JPG",
-  "/carousel/DSC07599.JPG",
-  "/carousel/DSC07955.jpeg",
-  "/carousel/IMG_0176.jpeg",
-  "/carousel/IMG_1884.jpeg",
-];
-const carouselRow3 = [
-  "/carousel/IMG_2769.jpeg",
-  "/carousel/IMG_3095.JPG",
-  "/carousel/IMG_3326.jpeg",
-  "/carousel/IMG_5135.JPG",
-  "/carousel/IMG_5142.JPG",
-  "/carousel/ORG_DSC04599.JPG",
-];
+import {
+  carouselRow1,
+  carouselRow2,
+  carouselRow3,
+} from "@/lib/carousel-data";
 
 /* ─── Carousel Row Component ─── */
 
@@ -204,7 +181,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* ─── Video Trailer ─── */}
+      {/* ─── Video Trailer ─── temporarily disabled; returning on feature/showreel branch
       <section className="py-24 md:py-32">
         <Container>
           <motion.div
@@ -235,6 +212,7 @@ export default function Home() {
           </motion.div>
         </Container>
       </section>
+      */}
 
       {/* ─── Studio HQ ─── */}
       <section className="relative flex items-center justify-center overflow-hidden py-32 md:py-44">
@@ -304,14 +282,14 @@ export default function Home() {
                   variants={fadeUp}
                   className="font-serif text-[clamp(1.15rem,4vw,1.5rem)] leading-relaxed tracking-tight mb-10"
                 >
-                  I come from photography, videography, and design — then taught
+                  I come from photography, videography, and design, then taught
                   myself to code so I could ship the things I was designing.
                 </motion.p>
                 <motion.p
                   variants={fadeUp}
                   className="font-serif text-[clamp(1.15rem,4vw,1.5rem)] leading-relaxed tracking-tight"
                 >
-                  Now I use every tool available, including AI, to build faster
+                  Now I use every tool available to build faster
                   and with more intention than a traditional dev shop.
                 </motion.p>
               </motion.div>
@@ -326,10 +304,10 @@ export default function Home() {
                 {[
                   "Next.js",
                   "React",
+                  "TypeScript",
                   "Tailwind CSS",
-                  "Framer Motion",
                   "Firebase",
-                  "Stripe",
+                  "Stripe Integration",
                   "Photography",
                   "Videography",
                   "Visual Design",
@@ -504,9 +482,7 @@ export default function Home() {
                           >
                             <option value="">What do you need?</option>
                             <option value="landing">Landing Page</option>
-                            <option value="business">Business Site</option>
-                            <option value="full">Full Package</option>
-                            <option value="product">Product / App</option>
+                            <option value="custom">Custom Build</option>
                             <option value="other">Something Else</option>
                           </select>
                         </div>

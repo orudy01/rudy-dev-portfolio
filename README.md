@@ -16,9 +16,9 @@ Personal portfolio and client-facing website for Rodolfo Ortega, a creative dire
 
 | Route | Description |
 |---|---|
-| `/` | Homepage — hero, showreel, about, photo carousel, contact form |
-| `/work` | Case studies — B&B Auto Detailing, Sandra's Mini Pancakes, Gym Logger, AI Micro-Agency |
-| `/services` | Pricing tiers — Landing Page, Business Site, Full Package |
+| `/` | Homepage — hero, studio HQ, about, photo carousel, contact form |
+| `/work` | Case studies — Gym Logger, B&B Auto Detailing, Sandra's Mini Pancakes |
+| `/services` | Pricing tiers — Landing Page, Custom Build |
 
 ## Getting Started
 
@@ -63,21 +63,36 @@ components/
 lib/
   motion.ts             # Framer Motion animation variants
   utils.ts              # cn() utility
+  carousel-data.ts      # AUTO-GENERATED list of homepage carousel photos
+scripts/
+  gen-carousel.mjs      # Scans /public/carousel and rewrites lib/carousel-data.ts
+public/
+  carousel/             # Drop photos here; rebuild auto-picks them up
+  work/                 # Project preview images
 ```
+
+## Carousel Photos
+
+The homepage photo carousel is filesystem-driven. To add or remove photos:
+
+1. Drop a file in `/public/carousel/` (or delete one) — JPG, PNG, WebP, or AVIF
+2. Restart `npm run dev` (the `predev` script regenerates `lib/carousel-data.ts`)
+
+Photos are split alphabetically across three rows. To control row placement, prefix filenames (e.g. `1_hero.jpg`, `2_studio.jpg`).
 
 ## TODO Before Launch
 
 - [ ] Replace `https://rudyortega.dev` placeholder with live domain (search the codebase)
 - [ ] Add `/public/og-image.jpg` — 1200×630px for social sharing
 - [ ] Update Resend `from:` address to a domain email once domain is live
-- [ ] Add real project images to `/work` page
-- [ ] Add real photos to marquee carousel on homepage
-- [ ] Add showreel video or swap placeholder for a static image
+- [ ] Add Sandra's Mini Pancakes case study + preview image (currently shows "Coming Soon" tile)
+- [ ] Re-enable homepage Showreel section once highlight reel is finished (parked on `feature/showreel`)
 
 ## Scripts
 
 ```bash
-npm run dev      # Development server
-npm run build    # Production build
-npm run lint     # ESLint
+npm run dev           # Development server (runs gen:carousel first via predev hook)
+npm run build         # Production build (runs gen:carousel first via prebuild hook)
+npm run lint          # ESLint
+npm run gen:carousel  # Manually regenerate lib/carousel-data.ts from /public/carousel
 ```

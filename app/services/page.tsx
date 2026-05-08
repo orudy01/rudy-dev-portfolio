@@ -12,7 +12,7 @@ import { fadeUp, stagger } from "@/lib/motion";
 const serviceTiers = [
   {
     name: "Landing Page",
-    price: "$500",
+    price: "$400",
     timeline: "3–5 days",
     description:
       "One page that converts. Perfect for launches, side projects, or getting online fast.",
@@ -27,40 +27,24 @@ const serviceTiers = [
     payment: "Full payment upfront",
   },
   {
-    name: "Custom Website",
+    name: "Custom Build",
     price: "$1,000",
-    timeline: "7–10 days",
+    timeline: "7–14 days",
     popular: true,
     description:
-      "Fully custom design for established businesses. Multiple pages, bigger impact.",
+      "A fully custom site or web app — designed, built, and shipped end-to-end.",
     includes: [
       "Custom design — no templates",
-      "Up to 5 pages",
-      "Looks perfect on every device",
-      "Service & product showcase sections",
-      "Testimonials & social proof",
-      "Know exactly where your traffic comes from",
+      "Multi-page site (up to 8 pages)",
+      "Mobile-first, looks perfect on every device",
+      "E-commerce or booking with Stripe payments",
+      "Custom web app features — client-editable CMS, dashboards, logging tools",
+      "Service & product showcase, testimonials & social proof",
       "Built to show up on Google",
-      "2 rounds of revisions",
-    ],
-    bestFor: "Restaurants, salons, local service businesses",
-    payment: "50% to start · 50% on launch",
-  },
-  {
-    name: "Full Build",
-    price: "$1,200",
-    timeline: "10–14 days",
-    description:
-      "E-commerce, booking systems, or complex functionality. The complete digital presence.",
-    includes: [
-      "Everything in Custom Website",
-      "Up to 8 pages",
-      "Accept payments from day one (Stripe)",
-      "E-commerce or booking system setup",
       "Automatically follow up with every lead",
       "3 rounds of revisions",
     ],
-    bestFor: "E-commerce, booking-based businesses, SaaS",
+    bestFor: "Local businesses, e-commerce, and founders who need a custom web app",
     payment: "50% to start · 50% on launch",
   },
 ];
@@ -163,7 +147,7 @@ export default function ServicesPage() {
                   <p className="font-serif text-lg text-white leading-relaxed">
                     I ship sites in as little as{" "}
                     <span className="font-semibold">3 days</span> starting at{" "}
-                    <span className="font-semibold">$500</span>. Same quality,
+                    <span className="font-semibold">$400</span>. Same quality,
                     less waiting, less budget.
                   </p>
                 </div>
@@ -180,7 +164,7 @@ export default function ServicesPage() {
               animate="visible"
               variants={stagger}
             >
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
                 {serviceTiers.map((tier) => (
                   <motion.div
                     key={tier.name}
@@ -250,7 +234,7 @@ export default function ServicesPage() {
                   Landing Page: Full payment upfront
                 </p>
                 <p className="font-mono text-[11px] text-[#888] tracking-widest">
-                  Custom &amp; Full Build: 50% to start · 50% on launch
+                  Custom Build: 50% to start · 50% on launch
                 </p>
               </motion.div>
             </motion.div>
