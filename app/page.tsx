@@ -282,15 +282,13 @@ export default function Home() {
                   variants={fadeUp}
                   className="font-serif text-[clamp(1.15rem,4vw,1.5rem)] leading-relaxed tracking-tight mb-10"
                 >
-                  I come from photography, videography, and design, then taught
-                  myself to code so I could ship the things I was designing.
+                  As a kid I was jailbreaking my iPod. Later, I was messing around building landing pages on the early web. Today it&apos;s learning AI tools, the moment they ship. That curiosity, paired with years in photography and design, shapes everything I build.
                 </motion.p>
                 <motion.p
                   variants={fadeUp}
                   className="font-serif text-[clamp(1.15rem,4vw,1.5rem)] leading-relaxed tracking-tight"
                 >
-                  Now I use every tool available to build faster
-                  and with more intention than a traditional dev shop.
+                  I work with small businesses, family shops, and local teams who want a site that actually feels like them. Built thoughtfully, without the overhead of a traditional agency.
                 </motion.p>
               </motion.div>
 
@@ -303,15 +301,15 @@ export default function Home() {
               >
                 {[
                   "Next.js",
-                  "React",
                   "TypeScript",
-                  "Tailwind CSS",
+                  "Tailwind",
                   "Firebase",
-                  "Stripe Integration",
+                  "Stripe",
+                  "Responsive Design",
                   "Photography",
                   "Videography",
-                  "Visual Design",
-                  "AI-Assisted Building",
+                  "Design",
+                  "AI Tooling",
                 ].map((skill) => (
                   <span
                     key={skill}

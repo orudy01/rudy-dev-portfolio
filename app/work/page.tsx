@@ -23,12 +23,12 @@ type Project = {
 const projects = [
   {
     number: "01",
-    title: "Gym Logger",
+    title: "Gym Rudy",
     category: "Web App — Personal + SaaS",
     year: "2025",
     description:
-      "Built from scratch because every workout tracker I tried locked features behind a paywall. Tracks my sessions over time, generates AI-powered workout plans based on your goals, equipment, and schedule (Groq / Llama 3.3), and lets others browse my workouts, view my supplement stack, or book a personal training session. A personal tool that doubles as a tool for others to use.",
-    tags: ["React", "Node.js", "Stripe", "Resend", "Groq"],
+      "Built from scratch because every workout tracker I tried locked features behind a paywall. Tracks my sessions over time, generates AI-powered workouts tailored to your goal, available equipment, and session length (Groq / Llama 3.3 70B), and lets others browse my workout history, view my supplement stack, or book and pay for a personal training session via Stripe. A personal tool that doubles as a tool for others to use.",
+    tags: ["Vite", "Firebase", "Stripe", "Resend", "Groq"],
     url: "https://gymrudy.com",
     image: {
       src: "/work/gym-log.jpg",
@@ -41,8 +41,8 @@ const projects = [
     category: "Web — Local Business",
     year: "2025",
     description:
-      "Landing page for a veteran-owned detailing business. Contact form, service packages, and lead generation. 12 qualified leads in the first month.",
-    tags: ["Next.js", "Tailwind", "Framer Motion"],
+      "Built for a veteran-owned mobile detailing business in Temecula that needed a real web presence, not a Facebook page. Custom landing page with sticky-stack service packages, before/after gallery, and customer reviews — all editable through an embedded Sanity Studio at /studio so the owner can update pricing and photos without touching code.",
+    tags: ["Next.js", "TypeScript", "Tailwind", "Sanity", "Framer Motion"],
     url: "https://www.bandbautodetailing.com",
     image: {
       src: "/work/b-and-b-auto-detailing.jpg",
@@ -55,8 +55,8 @@ const projects = [
     category: "Web — Catering",
     year: "2025",
     description:
-      "Catering website with 3 service tiers and a booking inquiry system. Warm gold palette designed to match the brand's personality.",
-    tags: ["React", "Vite", "Framer Motion"],
+      "Currently building version 2 for a local mini pancake catering business — a warm, brand-matched site with full online booking so customers can lock in dates and packages without the back-and-forth.",
+    tags: ["Next.js", "TypeScript", "Tailwind"],
     url: "#",
   },
 ];
@@ -172,7 +172,7 @@ export default function WorkPage() {
                         <h2 className="font-sans font-bold text-xl tracking-tight leading-tight mb-3">
                           {project.title}
                         </h2>
-                        <p className="font-serif text-[14px] text-[#888] leading-relaxed line-clamp-3">
+                        <p className="font-serif text-[14px] text-[#888] leading-relaxed">
                           {project.description}
                         </p>
                       </div>
@@ -192,7 +192,7 @@ export default function WorkPage() {
                             rel="noopener noreferrer"
                             className="font-mono text-[10px] uppercase tracking-[0.15em] text-white ml-auto hover:text-[#888] transition-colors duration-200"
                           >
-                            View →
+                            Visit Site →
                           </a>
                         ) : (
                           <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-[#555] ml-auto">
@@ -243,7 +243,7 @@ export default function WorkPage() {
                             rel="noopener noreferrer"
                             className="mt-6 inline-block font-mono text-[11px] uppercase tracking-[0.15em] text-white border-b border-[#333] pb-0.5 hover:border-white transition-colors duration-200 w-fit"
                           >
-                            View Project →
+                            Visit Site →
                           </a>
                         ) : (
                           <span className="mt-6 inline-block font-mono text-[11px] uppercase tracking-[0.15em] text-[#555] w-fit">
