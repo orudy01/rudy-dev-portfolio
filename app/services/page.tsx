@@ -335,7 +335,7 @@ export default function ServicesPage() {
                         {item.question}
                       </span>
                       <span
-                        className={`font-mono text-[#888] text-lg flex-shrink-0 transition-transform duration-300 ${
+                        className={`font-mono text-[#888] text-lg shrink-0 transition-transform duration-300 ${
                           openFaq === index ? "rotate-45" : ""
                         }`}
                         aria-hidden="true"
