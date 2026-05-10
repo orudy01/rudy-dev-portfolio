@@ -282,7 +282,7 @@ export default function Home() {
                   variants={fadeUp}
                   className="font-serif text-[clamp(1.15rem,4vw,1.5rem)] leading-relaxed tracking-tight mb-10"
                 >
-                  As a kid I was jailbreaking my iPod. Later, I was messing around building landing pages on the early web. Today it&apos;s learning AI tools, the moment they ship. That curiosity, paired with years in photography and design, shapes everything I build.
+                  My curiosity has always been directed to technology and the early web. As a kid, I was jailbreaking my iPod. Later, I was adding mods to my PC games and coding background music onto my social media accounts. Today, it&apos;s learning about AI tools the moment they arrive. That curiosity, paired with years in photography and design, shapes everything I build.
                 </motion.p>
                 <motion.p
                   variants={fadeUp}
