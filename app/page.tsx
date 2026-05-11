@@ -282,13 +282,13 @@ export default function Home() {
                   variants={fadeUp}
                   className="font-serif text-[clamp(1.15rem,4vw,1.5rem)] leading-relaxed tracking-tight mb-10"
                 >
-                  My curiosity has always been directed to technology and the early web. As a kid, I was jailbreaking my iPod. Later, I was adding mods to my PC games and coding background music onto my social media accounts. Today, it&apos;s learning about AI tools the moment they arrive. That curiosity, paired with years in photography and design, shapes everything I build.
+                  I’ve always been drawn to technology and the early web. As a kid, I was jailbreaking my iPod, adding mods to my PC games, and coding background music into my social media profiles. Today, I’m exploring AI tools the moment they arrive. That same curiosity still shapes the way I approach photography, design, and everything I build.
                 </motion.p>
                 <motion.p
                   variants={fadeUp}
                   className="font-serif text-[clamp(1.15rem,4vw,1.5rem)] leading-relaxed tracking-tight"
                 >
-                  I work with small businesses, family shops, and local teams who want a site that actually feels like them. Built thoughtfully, without the overhead of a traditional agency.
+                  I work with small businesses, family shops, and local teams who want a site that actually feels like them. 
                 </motion.p>
               </motion.div>
 

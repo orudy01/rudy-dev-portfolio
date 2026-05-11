@@ -27,7 +27,7 @@ const projects = [
     category: "Web App — Personal + SaaS",
     year: "2025",
     description:
-      "Built from scratch because every workout tracker I tried locked features behind a paywall. Tracks my sessions over time, generates AI-powered workouts tailored to your goal, available equipment, and session length (Groq / Llama 3.3 70B), and lets others browse my workout history, view my supplement stack, or book and pay for a personal training session via Stripe. A personal tool that doubles as a tool for others to use.",
+      "Built from scratch after getting tired of workout apps hiding basic features behind paywalls. It tracks my workouts over time, generates AI-based routines around my goals, available equipment, and session length using Groq and Llama 3.3 70B, and gives others a way to browse my workout history, see my supplement stack, or book a personal training session through Stripe. It started as a tool for myself and gradually became something useful for other people too.",
     tags: ["Vite", "Firebase", "Stripe", "Resend", "Groq"],
     url: "https://gymrudy.com",
     image: {
@@ -41,7 +41,7 @@ const projects = [
     category: "Web — Local Business",
     year: "2025",
     description:
-      "Built for a veteran-owned mobile detailing business in Temecula that needed a real web presence, not a Facebook page. Custom landing page with sticky-stack service packages, before/after gallery, and customer reviews — all editable through an embedded Sanity Studio at /studio so the owner can update pricing and photos without touching code.",
+      "Built for a veteran-owned mobile detailing business in Temecula that needed more than just an Instagram page. Designed and developed a custom landing page with sticky-stack service packages, a before-and-after gallery, and customer reviews. Everything is managed through an embedded Sanity Studio, allowing the owner to update pricing, photos, and content without needing to touch code.",
     tags: ["Next.js", "TypeScript", "Tailwind", "Sanity", "Framer Motion"],
     url: "https://www.bandbautodetailing.com",
     image: {
