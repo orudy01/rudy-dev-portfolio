@@ -55,11 +55,6 @@ export function Nav() {
     return () => { document.body.style.overflow = ""; };
   }, [open]);
 
-  // Close menu on route change
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
-
   const isActive = (href: string) => {
     if (href.startsWith("/#")) return pathname === "/";
     return pathname === href;

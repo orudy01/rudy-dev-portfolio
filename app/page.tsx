@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 // import { Play } from "lucide-react"; // re-enable when Showreel section returns
 
@@ -10,6 +11,7 @@ import { Footer } from "@/components/footer";
 import { Container } from "@/components/container";
 import { fadeUp, stagger, lineFade } from "@/lib/motion";
 import {
+  type CarouselImage,
   carouselRow1,
   carouselRow2,
   carouselRow3,
@@ -23,7 +25,7 @@ function MarqueeRow({
   speed,
   mobileSpeed,
 }: {
-  items: string[];
+  items: CarouselImage[];
   direction: "left" | "right";
   speed: string;
   mobileSpeed?: string;
@@ -40,17 +42,18 @@ function MarqueeRow({
           "--marquee-mobile-duration": mobileSpeed ?? speed,
         } as React.CSSProperties}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        {[...items, ...items].map((src, i) =>
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            key={`${src}-${i}`}
-            src={src}
+        {[...items, ...items].map((item, i) => (
+          <Image
+            key={`${item.src}-${i}`}
+            src={item.src}
             alt=""
-            loading="lazy"
+            width={item.width}
+            height={item.height}
+            loading="eager"
+            decoding="async"
             className="shrink-0 h-[140px] md:h-[260px] w-auto object-cover mr-8"
           />
-        )}
+        ))}
       </div>
     </div>
   );
